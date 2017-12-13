@@ -1,4 +1,4 @@
-#This makes a list of valid TC numbers as a text file.
+from random import randint
 
 def elevenController(input):
     numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
@@ -58,7 +58,6 @@ def controllerOne(input):
     else:
         return False
 
-
 def controllerTwo(input):
     oddsum = 0
     odds = ""
@@ -101,7 +100,6 @@ def controllerThree(input):
     else:
         return False
 
-#-----------------------------------------------
 def isTCvalid(TCnumber):
     if elevenController(TCnumber) == True:
         if controllerOne(TCnumber) == True:
@@ -133,6 +131,12 @@ def listValidTCnumbers():
             print(k)
     file.close()
 
-#Think again!
-print("Think again! This script takes a long time. If you are sure go and remove '#' of line 138 in source code!")
-#listValidTCnumbers()
+def randomValidTC():
+    global randomTC
+    i = False
+    while i == False:
+        randomTC = str(randint(10000000000, 99999999999))
+        if isTCvalid(randomTC) == True:
+            i = True
+    return randomTC
+
